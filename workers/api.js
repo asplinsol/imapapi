@@ -1243,6 +1243,11 @@ const init = async () => {
                         .example('<p>Hello from myself!</p>')
                         .description('Message HTML'),
 
+                    raw: Joi.string()
+                        .max(5 * 1024 * 1024)
+                        .example('Raw email created by other package')
+                        .description('Raw email created by other package. Overides use of other fields including text/html/subject etc'),
+
                     attachments: Joi.array()
                         .items(
                             Joi.object({
